@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>Fibonacci Class, with PHP & JQuery & ReactJS w/React-Bootstrap</title>
+
+	<!-- Babel preprocessor -->
+	<script src="js/babel-core-5.8.23-browser.min.js"></script>
+
+	<!-- jQuery (Not needed for React-Bootstrap. Necessary for normal Bootstrap's JavaScript plugins) -->
+	<script src="js/jquery3.1.1.min.js"></script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<!--	<script src="js/react.js"></script>-->
+	<script src="js/react-with-addons.js"></script>
+	<script src="js/react-dom.js"></script>
+	<script src="js/react-bootstrap.js"></script>
+
+	<!-- React-Bootstrap CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- Main CSS -->
+	<link href="css/styles.css" rel="stylesheet">
+
+
+	<script>
+		// Run after document load. http://api.jquery.com/ready/
+		$(function() {
+
+			// Fade in the page on load
+			$("body").fadeIn(2700);
+
+			// Set Unload of page event
+			window.addEventListener('beforeunload', function() { // Not working all the time ?? Got it to fade out only a few times.
+				console.log("Unloading...");
+				$("body").fadeOut(2000);
+			}, false);
+
+		});
+
+	</script>
+
+</head>
+
+<body>
+
+	<div class='well row'>
+		<div class='col-xs-6'><a href='#'>Fibonacci Class, with PHP & JQuery & ReactJS w/React-Bootstrap</a></div>
+
+	</div>
+
+	<div id="fNumbers"></div>
+
+	<!-- Place React component for displaying the result of Fibonacci computation -->
+	<script type="text/babel" src="js/main.jsx"></script>
+
+
+	<div class='well row'>
+		<div class='col-xs-6'><a href='#'>Fibonacci Class, with PHP & JQuery & ReactJS w/React-Bootstrap</a></div>
+		<div class='col-xs-6 text-right'>Personal homepage: <a href='http://SethLeedy.Name'>Seth Leedy.Name</a></div>
+	</div>
+</body>
+
+</html>
