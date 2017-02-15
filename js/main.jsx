@@ -54,7 +54,7 @@ var FOutputComp = React.createClass({
 		return DisInputForm;
 	},
 
-	onFormSubmitStartOver: function(e) {
+onFormSubmitStartOver: function(e) {
 		e.preventDefault();
 
 		var DisInputForm = this.createDisInputForm();
