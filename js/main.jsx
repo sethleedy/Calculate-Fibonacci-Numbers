@@ -1,7 +1,6 @@
 'use strict';
 
 //// Start the reactjs class
-//test
 
 // For the input tags
 var FieldGroup = React.createClass({
@@ -54,7 +53,7 @@ var FOutputComp = React.createClass({
 		
 		return DisInputForm;
 	},
-	
+
 	onFormSubmitStartOver: function(e) {
 		e.preventDefault();
 
