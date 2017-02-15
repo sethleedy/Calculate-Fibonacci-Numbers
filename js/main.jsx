@@ -2,7 +2,6 @@
 
 //// Start the reactjs class
 
-
 // For the input tags
 var FieldGroup = React.createClass({
 	render: function() {
@@ -54,9 +53,30 @@ var FOutputComp = React.createClass({
 		
 		return DisInputForm;
 	},
+
+onFormSubmitStartOver: function(e) {
+		e.preventDefault();
+
+		var DisInputForm = this.createDisInputForm();
+		this.setState({DisplayOutput: DisInputForm});
+	},
 	
-	onFormSubmitStartOver: function() {
-		this.setState({DisplayOutput: this.DisInputForm});
+	onFormSubmit: function(e) {
+		e.preventDefault();
+		
+		// Gather the data to pass as POST on the AJAX request
+		let varPost={};
+		//alert(JSON.stringify(this.state));
+		varPost.number1=this.state.fInput1;
+		varPost.number2=this.state.fInput2;
+		//alert(JSON.stringify(varPost));
+		
+		// Send AJAX to server.
+		$.post("process.php", varPost, this.parseNumbersAndSetState);
+  	},
+	
+	setField: function(e) {
+  		this.setState({[e.target.id]: e.target.value})
 	},
 	
 	componentWillMount: function() {
@@ -68,29 +88,12 @@ var FOutputComp = React.createClass({
 		this.setState({DisplayOutput: DisInputForm});
 	},
 	
-	setField: function(e) {
-  		this.setState({[e.target.id]: e.target.value})
-	},
-	onFormSubmit(e) {
-		e.preventDefault()
-		
-		// Gather the data to pass as POST on the AJAX request
-		var varPost={};
-		//alert(JSON.stringify(this.state));
-		varPost.number1=this.state.fInput1;
-		varPost.number2=this.state.fInput2;
-		//alert(JSON.stringify(varPost));
-		
-		// Send AJAX to server.
-		$.post("process.php", varPost, this.parseNumbersAndSetState);
-  	},
-	
 	parseNumbersAndSetState: function(reData) {
 
 			//alert(JSON.stringify(reData));
 			
 			// Use retrieved data
-			alert(reData.message); // reData is already an object to use from JSON.		
+			alert(reData.message); // reData is already an object to use from JSON.
 		
 			// Get response and set state with response numbers.
 
